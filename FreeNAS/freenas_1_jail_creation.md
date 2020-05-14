@@ -18,7 +18,7 @@ In my FreeNAS setup I use a dedicated storage pool for the Jails and a separate 
 
 It would be a good idea to log into your router and give your bitcoin jail a static IP address. Also forward port 8333 from your WAN to your jail's LAN IP address. For example, my internal IP address assigned to my bitcoin jail is 192.168.84.123
 
-<img src="https://github.com/bizwoo/guides/raw/master/FreeNAS/images/mount_point_create.PNG" alt="FreeNAS_Jail_Port_Forward" width="650"/>
+![FreeNAS_Jail_Port_Forward](images/jail_port_forward.png)
 
 *Your router's firmware may look different. This is how it looks on OpenWRT.*
 ```
