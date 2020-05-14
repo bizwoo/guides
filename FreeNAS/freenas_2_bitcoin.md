@@ -56,7 +56,7 @@ In my case, I need to use:
 
 Wait until sync is complete, once blocks=headers you're good to go. Let this run overnight.
 
-Note: If the bitcoind service does not start it could be that the correct path for the bitcoin congig file is `/usr/local/etc/bitcoin.conf`. In this case the following commands need to be executed:
+Note: If the bitcoind service does not start it could be that the correct path for the bitcoin config file is `/usr/local/etc/bitcoin.conf`. In this case the following commands need to be executed:
 
 ```
 # cat <<EOT >> /usr/local/etc/bitcoin.conf
