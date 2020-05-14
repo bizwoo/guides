@@ -14,7 +14,7 @@ Give the jail a name, such as `bitcoin`. Select release `11.2-RELEASE`, select `
 
 In my FreeNAS setup I use a dedicated storage pool for the Jails and a separate storage pool for all my media and data. The Jails' pool is of relative small capacity; therefore, I prefer to create a mount point for the bitcoin jail to store all the bitcoin data such as blockcain, etc. in the larger storage pool. Skip this step if you prefer to store the bitcoin data in the same location of the jail. In the Bitcoin jail click `Mount points` then in the `Actions` dropdown select `Add Mount Points`. Select your `Source` (directory in storage pool where I want the bitcoin data to be located) and your `Destination` (directory in bitcoin jail where I want the bitcoin source directory to be mounted) folders. Click `SAVE`. In my case it looks as in the image below.
 
-![FreeNAS Mount point creation](images/mount_point_create.PNG) 
+<img src="https://github.com/bizwoo/guides/raw/master/FreeNAS/images/mount_point_create.PNG" alt="FreeNAS Mount point creation" width="650"/> 
 
 It would be a good idea to log into your router and give your bitcoin jail a static IP address. Also forward port 8333 from your WAN to your jail's LAN IP address. For example, my internal IP address assigned to my bitcoin jail is 192.168.84.123
 
