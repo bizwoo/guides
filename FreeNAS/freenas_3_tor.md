@@ -6,7 +6,7 @@
 
 Tor is a communications protocol that encrypts and anonymizes communications by bouncing encrypted data between relays. It's like using several different VPNs between client and server. TOR also allows you to securely and privately remote connect to your home server with a static address and zero router configuration! Hidden Service Version 3 is not discoverable, so you don't have to worry about exposing ports to the public, as long as you don't share your hidden service onion address!
 
-This guide runs bitcoind on clearnet and tor, runs lnd exclusively on tor, and privately host ports for remote connections with mobile wallets and electrum clients.  
+This guide runs bitcoind on ~~clearnet and~~ tor, runs lnd exclusively on tor, and privately host ports for remote connections with mobile wallets and electrum clients.  
 
 
 ### Install & Configure Tor
@@ -44,7 +44,21 @@ tor_enable="YES"
 ```
 Save (Ctrl+O,ENTER) and exit (CTRL+X)
 
+In order to force bitcoind to use only tor the following changes to the bitcoin config file need to be applied (ignore this if you would like bitcoind to use clearnet and tor):  
+
+```
+# nano /usr/local/etc/bitcoin.conf
+proxy=127.0.0.1:9050
+listen=1
+bind=127.0.0.1
+
+maxconnections=20 # Add this line if you would like to restrict the connections to 20 to save bandwidth. 
+```
+
+Save (Ctrl+O,ENTER) and exit (CTRL+X)
+
 Add user `bitcoin` to the` _tor` group so that bitcoin can read the cookie authentication file in `/var/db/tor`, then stop and start the tor and bitcoin service:
+
 ```
 # pw usermod bitcoin -G _tor
 # service bitcoind stop
